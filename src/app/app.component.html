@@ -1,24 +1,26 @@
-<div class="container mt-5">
+<div class="container mt-5 bg-secondary">
   <div class="row">
     <div class="col-6 m-auto">
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <div class="card text-center card-form rounded border">
           <div class="card-body">
             <div *ngIf="!user && !rawUser">
-              <h3 class="card-title">Login to your Auth Gate App!</h3>
-              <div class="card-block">
+              <h3 class="card-title text-primary">
+                Login to your Auth Gate App!
+              </h3>
+              <div class="card-block mb-2">
                 <button
-                  class="btn btn-social-icon mx-1"
+                  class="btn btn-social-icon btn-outline-info mx-1"
                   (click)="signInWithGoogle()"
                 >
-                  <i class="fa fa-google">Sign In with Google</i>
+                  <i class="fa fa-google"> Sign In with Google</i>
                 </button>
 
                 <button
-                  class="btn btn-social-icon mx-1"
+                  class="btn btn-social-icon btn-outline-info mx-1"
                   (click)="signInWithMicrosoft()"
                 >
-                  <i class="fa fa-windows">Sign In with Microsoft</i>
+                  <i class="fa fa-windows"> Sign In with Microsoft</i>
                 </button>
               </div>
               <div class="card-block">
@@ -53,7 +55,7 @@
                 <input
                   type="submit"
                   value="Login"
-                  class="btn btn-secondary btn-block col-12"
+                  class="btn btn-info btn-block col-12"
                 />
               </div>
             </div>
@@ -65,33 +67,33 @@
               />
               <div class="card-block">
                 <h4 class="card-title">Hi, {{ user.name }}</h4>
-                <p>
-                  We have stored some of your information in this session. Click
-                  on the button to see the stored information
-                </p>
-                <button
-                  class="btn btn-success col-12 m-1"
-                  (click)="fetchSession()"
-                >
-                  Fetch Data
-                </button>
-                <div *ngIf="sessionView">
-                  <div *ngIf="sessionUserName">
-                    User name : {{ sessionUserName }}
-                  </div>
-                  <div *ngIf="sessionUserEmail">
-                    Email : {{ sessionUserEmail }}
-                  </div>
-                  <div *ngIf="sessionUserProvider">
-                    You have logged in using {{ sessionUserProvider }}
-                  </div>
-                </div>
               </div>
             </div>
             <div *ngIf="rawUser" class="card text-center">
               You have logged in using the shared credential
             </div>
             <div *ngIf="user || rawUser" class="card-block">
+              <p>
+                We have stored some of your information in this session. Click
+                on the button to see the stored information
+              </p>
+              <button
+                class="btn btn-success col-12 m-1"
+                (click)="fetchSession()"
+              >
+                Fetch Data
+              </button>
+              <div *ngIf="sessionView">
+                <div *ngIf="sessionUserName">
+                  User name : {{ sessionUserName }}
+                </div>
+                <div *ngIf="sessionUserEmail">
+                  Email : {{ sessionUserEmail }}
+                </div>
+                <div *ngIf="sessionUserProvider">
+                  You have logged in using {{ sessionUserProvider }}
+                </div>
+              </div>
               <button class="btn btn-danger col-12" (click)="signOut()">
                 Sign out
               </button>
