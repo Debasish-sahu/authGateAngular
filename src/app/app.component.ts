@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SocialAuthService, GoogleLoginProvider, MicrosoftLoginProvider, SocialUser } from "angularx-social-login";
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -62,12 +61,10 @@ export class AppComponent {
     this.sessionUserName = sessionStorage.getItem('loggedUserName');
     this.sessionUserEmail = sessionStorage.getItem('loggedUserEmail');
     this.sessionUserProvider = sessionStorage.getItem('loggedUserProvider');
-
   }
 
   fetchSession() {
     this.sessionView = true;
-
   }
 
   signOut(): void {
@@ -80,6 +77,5 @@ export class AppComponent {
     this.rawUser = false;
     sessionStorage.clear();
     this.sessionView = false;
-
   }
 }
